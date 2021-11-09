@@ -1,0 +1,14 @@
+<%= form_for(@task) do |f| %>
+  <%= f.label :titre %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_field :details %>
+  <% if @task.id %>
+  <%= f.label :fait %>
+  <%= f.check_box :completed %>
+  <% end %>
+  <%= f.submit :valider, class: 'btn-valider'%>
+<% end %>
+<br>
+<br>
+<%= link_to "retour", tasks_path %>

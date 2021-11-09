@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Liste des choses à faire</h1>
+
+  <div class="main">
+    <%= link_to "/tasks/new", :class => "btn btn-ajouter" do %>
+      +
+    <% end %>
+  </div>
+
+  <ul>
+      <% @tasks.each do |task| %>
+          <li>
+          <%= link_to task_path(task), :class => "btn btn-task" do %>
+            <%= "#{task.title}" %>
+          <% end %>
+          <% if task.completed == false %>
+              à faire
+          <% else %>
+              fait
+          <% end %>
+          <%= link_to "🗑️", task_path(task), method: :delete, data: { confirm: "êtes vous sûr de vouloir supprimer cette tâche ?" } %>
+          </li>
+      <% end %>
+  </ul>
+</div>
